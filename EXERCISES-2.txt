@@ -1,0 +1,36 @@
+Progress
+--------
+
+We have now set up our server to be able to read data from Mongo, as well 
+as to write data to mongo. This completes the most basic closed loop: we 
+can round-trip data between the browser and the database !!1! 
+
+At this point we have begun working on adding the ability to delete data.
+
+Key ideas
+---------
+- Serving static files
+	- Turn static file serving on with `app.use(express.static(staticPath))`, where `staticPath` is a variable for a directory in your project, eg `staticPath = 'static';`.
+	- Then all the files in the static directory are available to the browser if you just put the path to the file in the URL.
+
+- Routing
+	- `app.get(<path>, <controllerFunction>)` connections a url path
+	to a function that is called with that `req` object, as well as a `res` object. The `req` is the request from the browser, the `res` is the response we will send back.
+	- You can also have `app.post` and `app.delete`, with the same arguements.
+
+- jQuery
+	- Make sure you understand how to do basic element selection with jQuery!
+	- Make sure you understand how to do $.get, $.post and $.ajax calls
+	- Make sure you understand adding event handlers with .on
+	- Make sure you understand the difference between string formatting with `${}` and jQuery's $. methods!!!!
+	
+
+Exercises
+---------
+- Make sure you know how to set up routes and connect them to controller functions. To practice:
+	- create a route that connects the path a GET request to `/pants` to a controller that sends the response 'PANTS PANTS PANTS!'.
+
+- Make sure you understand how to use the `mongoIO.readItem` function. You can play with this function by starting a node terminal session and requiring the IO module. Then try writing callback functions to pass into readItem. 
+	For example, can you write a function that logs the data to console? 
+	Can you write one that prints the data out three times? 
+
